@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TKO Group Holdings: Building the Next Premium Sports & Entertainment Platform</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #ff4500;
+            --secondary-color: #1a1a1a;
+            --accent-color: #333;
+            --text-light: #ffffff;
+            --text-dark: #333333;
+            --gradient-bg: linear-gradient(135deg, #ff4500, #ff6b35);
+            --section-spacing: 4rem;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        .hero-section {
+            background: var(--gradient-bg);
+            color: var(--text-light);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-top: 0.5rem;
+        }
+
+        .nav-bar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(26, 26, 26, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .section {
+            padding: var(--section-spacing) 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: var(--secondary-color);
+            text-align: center;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .business-model-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .revenue-stream {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 4px solid var(--primary-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .revenue-stream:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .revenue-stream h3 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .chart-container {
+            background: var(--text-light);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .financial-metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .metric-card {
+            background: var(--gradient-bg);
+            color: var(--text-light);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .metric-card:hover {
+            transform: scale(1.05);
+        }
+
+        .metric-value {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .metric-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .competitive-advantages {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .advantage-card {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 2rem;
+            border-radius: 15px;
+            border-top: 3px solid var(--primary-color);
+        }
+
+        .advantage-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .problem-section {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: var(--text-light);
+            padding: var(--section-spacing) 2rem;
+            margin: 4rem 0;
+            border-radius: 20px;
+        }
+
+        .challenge-visual {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 3rem 0;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .challenge-side {
+            flex: 1;
+            min-width: 250px;
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .vs-indicator {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin: 0 1rem;
+        }
+
+        .evidence-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .evidence-card {
+            background: var(--text-light);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .evidence-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .evidence-header {
+            background: var(--gradient-bg);
+            color: var(--text-light);
+            padding: 1.5rem;
+            font-weight: 600;
+        }
+
+        .evidence-content {
+            padding: 1.5rem;
+        }
+
+        .recommendation-section {
+            background: linear-gradient(135deg, #27ae60, #2ecc71);
+            color: var(--text-light);
+            padding: var(--section-spacing) 2rem;
+            margin: 4rem 0;
+            border-radius: 20px;
+        }
+
+        .recommendations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .recommendation-card {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .recommendation-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.3);
+            margin-bottom: 1rem;
+        }
+
+        .final-take {
+            background: var(--secondary-color);
+            color: var(--text-light);
+            text-align: center;
+            padding: var(--section-spacing) 2rem;
+            margin: 4rem 0 0 0;
+        }
+
+        .quote {
+            font-size: 2.5rem;
+            font-style: italic;
+            margin-bottom: 2rem;
+            line-height: 1.3;
+        }
+
+        .sources-section {
+            background: #f8f9fa;
+            padding: var(--section-spacing) 2rem;
+        }
+
+        .sources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .source-category h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .source-list {
+            list-style: none;
+        }
+
+        .source-list li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .source-list li::before {
+            content: "→";
+            color: var(--primary-color);
+            font-weight: 700;
+            position: absolute;
+            left: 0;
+        }
+
+        .interactive-chart {
+            background: var(--text-light);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .risk-timeline {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            color: var(--text-light);
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            margin: 3rem 0;
+        }
+
+        .timeline-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1rem 0;
+            border-left: 4px solid var(--text-light);
+        }
+
+        .integration-focus {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: var(--text-light);
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            margin: 3rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .section {
+                padding: 2rem 1rem;
+            }
+            
+            .quote {
+                font-size: 1.8rem;
+            }
+        }
+
+        .scroll-indicator {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-bg);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            z-index: 1000;
+        }
+
+        .scroll-indicator:hover {
+            transform: scale(1.1);
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav-bar">
+        <div class="nav-content">
+            <div class="logo">TKO</div>
+            <ul class="nav-links">
+                <li><a href="#company">The Company</a></li>
+                <li><a href="#problem">The Challenge</a></li>
+                <li><a href="#evidence">The Evidence</a></li>
+                <li><a href="#solution">The Solution</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title">Building the Next Premium Sports & Entertainment Platform</h1>
+            <p class="hero-subtitle">TKO has grown far beyond a UFC-WWE merger. Today, it combines premium live-event brands, media rights, hospitality, sponsorship, and global fan reach into one broader platform. The company's next challenge is not whether it can grow—it's whether it can turn that scale into durable value without adding too much complexity.</p>
+            
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number">1B+</span>
+                    <span class="stat-label">Households Reached</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">210</span>
+                    <span class="stat-label">Countries & Territories</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">500+</span>
+                    <span class="stat-label">Annual Live Events</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">$4.735B</span>
+                    <span class="stat-label">2025 Revenue</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Company Overview -->
+    <section id="company" class="section">
+        <h2 class="section-title">The New Sports Empire</h2>
+        <p style="text-align: center; font-size: 1.2rem; margin-bottom: 3rem; color: #666;">TKO is no longer just a two-brand story. It has expanded into a broader sports and entertainment ecosystem built around premium live-event intellectual property, media rights capabilities, and premium fan experiences.</p>
+        
+        <div class="business-model-grid">
+            <div class="revenue-stream">
+                <h3>🥊 UFC</h3>
+                <p>Global MMA leader and premium live rights engine. 950M+ TV households across 170+ countries.</p>
+            </div>
+            <div class="revenue-stream">
+                <h3>🤼 WWE</h3>
+                <p>Sports entertainment brand with year-round programming and global fan loyalty reaching 1B+ households.</p>
+            </div>
+            <div class="revenue-stream">
+                <h3>📺 IMG</h3>
+                <p>Media-rights, sports marketing, and distribution capabilities serving 300+ federations and events.</p>
+            </div>
+            <div class="revenue-stream">
+                <h3>🎪 On Location</h3>
+                <p>Premium hospitality, ticketing, and fan experience platform for marquee global events.</p>
+            </div>
+        </div>
+
+        <h3 class="section-subtitle">How TKO Makes Money</h3>
+        <p style="margin-bottom: 2rem;">TKO monetizes premium content across four distinct but connected channels. That diversified revenue engine helps the company extract more value from the same core brands.</p>
+        
+        <div class="chart-container">
+            <h4 style="text-align: center; margin-bottom: 2rem; color: var(--secondary-color);">2025 Segment Revenue</h4>
+            <div style="display: flex; justify-content: space-around; align-items: center; flex-wrap: wrap; gap: 2rem;">
+                <div style="text-align: center;">
+                    <div style="width: 120px; height: 120px; border-radius: 50%; background: #ff4500; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; margin: 0 auto 1rem;">$1.709B</div>
+                    <p><strong>WWE</strong></p>
+                </div>
+                <div style="text-align: center;">
+                    <div style="width: 120px; height: 120px; border-radius: 50%; background: #ff6b35; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; margin: 0 auto 1rem;">$1.502B</div>
+                    <p><strong>UFC</strong></p>
+                </div>
+                <div style="text-align: center;">
+                    <div style="width: 120px; height: 120px; border-radius: 50%; background: #ff8c69; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; margin: 0 auto 1rem;">$1.367B</div>
+                    <p><strong>IMG</strong></p>
+                </div>
+            </div>
+        </div>
+
+        <h3 class="section-subtitle">Why TKO Wins</h3>
+        <div class="competitive-advantages">
+            <div class="advantage-card">
+                <div class="advantage-icon">🏆</div>
+                <h4>Premium IP</h4>
+                <p>UFC and WWE deliver scarce, must-watch live content that attracts distributors, sponsors, and loyal global fan bases.</p>
+            </div>
+            <div class="advantage-card">
+                <div class="advantage-icon">🎯</div>
+                <h4>Structural Control</h4>
+                <p>TKO controls production, event strategy, and monetization more directly than many traditional sports properties.</p>
+            </div>
+            <div class="advantage-card">
+                <div class="advantage-icon">💰</div>
+                <h4>Cross-Platform Monetization</h4>
+                <p>The same portfolio supports rights, events, hospitality, sponsorship, and licensing simultaneously.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Strategic Problem -->
+    <section id="problem" class="problem-section">
+        <div class="section">
+            <h2 class="section-title" style="color: var(--text-light);">The Expansion Question</h2>
+            <p style="text-align: center; font-size: 1.2rem; margin-bottom: 3rem; opacity: 0.9;">TKO has momentum, but momentum creates a new challenge: how should management balance broader expansion against the need for tighter integration and cleaner execution?</p>
+            
+            <div class="challenge-visual">
+                <div class="challenge-side">
+                    <h3 style="color: var(--primary-color); margin-bottom: 1rem;">More Scale</h3>
+                    <ul style="list-style: none; text-align: left;">
+                        <li>• More brands and monetization channels</li>
+                        <li>• More media-rights opportunities</li>
+                        <li>• More premium event economics</li>
+                        <li>• More ways to cross-sell sponsors</li>
+                    </ul>
+                </div>
+                <div class="vs-indicator">VS</div>
+                <div class="challenge-side">
+                    <h3 style="color: #e74c3c; margin-bottom: 1rem;">More Complexity</h3>
+                    <ul style="list-style: none; text-align: left;">
+                        <li>• Higher integration demands</li>
+                        <li>• More execution risk across portfolio</li>
+                        <li>• Greater dependence on key partners</li>
+                        <li>• More pressure to protect premium positioning</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 3rem;">
+                <h3 style="color: var(--primary-color); font-size: 2rem;">Core Question</h3>
+                <p style="font-size: 1.5rem; font-weight: 600; margin-top: 1rem;">Can TKO scale without adding complexity faster than value?</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Financial Evidence -->
+    <section id="evidence" class="section">
+        <h2 class="section-title">What the Numbers Say</h2>
+        <p style="text-align: center; font-size: 1.2rem; margin-bottom: 3rem; color: #666;">The financial picture shows a company operating from a position of strength. That's exactly why disciplined strategic focus matters now.</p>
+        
+        <div class="financial-metrics">
+            <div class="metric-card">
+                <div class="metric-value">$4.735B</div>
+                <div class="metric-label">2025 Revenue</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">$1.585B</div>
+                <div class="metric-label">Adjusted EBITDA</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">$1.286B</div>
+                <div class="metric-label">Operating Cash Flow</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">$1.159B</div>
+                <div class="metric-label">Free Cash Flow</div>
+            </div>
+        </div>
+
+        <div class="chart-container">
+            <h4 style="text-align: center; margin-bottom: 2rem;">2026 Forward Guidance</h4>
+            <div style="display: flex; justify-content: center; gap: 4rem; flex-wrap: wrap;">
+                <div style="text-align: center;">
+                    <div style="font-size: 2rem; font-weight: 700; color: var(--primary-color);">$5.675B–$5.775B</div>
+                    <p>Revenue Guide</p>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-size: 2rem; font-weight: 700; color: var(--primary-color);">$2.240B–$2.290B</div>
+                    <p>EBITDA Guide</p>
+                </div>
+            </div>
+        </div>
+
+        <h3 class="section-subtitle">What Could Go Wrong</h3>
+        <div class="risk-timeline">
+            <h4 style="margin-bottom: 2rem; font-size: 1.5rem;">Key Risk Factors</h4>
+            <div class="timeline-item">
+                <strong>Partner Dependence:</strong> Heavy reliance on key media and distribution relationships could limit negotiating power.
+            </div>
+            <div class="timeline-item">
+                <strong>Integration Risk:</strong> Acquired businesses must work as one platform to justify strategy.
+            </div>
+            <div class="timeline-item">
+                <strong>Reputational Exposure:</strong> Adverse publicity and litigation can hurt brand value ($375M UFC settlement in 2024).
+            </div>
+            <div class="timeline-item">
+                <strong>Media Shifts:</strong> Changing platform economics can alter content value and reach.
+            </div>
+        </div>
+
+        <h3 class="section-subtitle">Integration Imperative</h3>
+        <div class="integration-focus">
+            <h4 style="margin-bottom: 2rem; font-size: 1.5rem;">Evidence Points to Integration-Led Growth</h4>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+                <div>
+                    <strong>Financial Strength:</strong> $1.159B free cash flow provides flexibility for strategic investments
+                </div>
+                <div>
+                    <strong>Market Position:</strong> Premium IP in UFC/WWE creates defensible moat
+                </div>
+                <div>
+                    <strong>Platform Expansion:</strong> IMG + On Location + PBR added significant capabilities
+                </div>
+                <div>
+                    <strong>Execution Risk:</strong> Too much complexity too fast could dilute premium positioning
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Strategic Recommendations -->
+    <section id="solution" class="recommendation-section">
+        <div class="section">
+            <h2 class="section-title" style="color: var(--text-light);">Our Strategic Playbook</h2>
+            <p style="text-align: center; font-size: 1.2rem; margin-bottom: 3rem; opacity: 0.9;">TKO should prioritize integration-led monetization over expansion-led complexity. The next phase of value creation should come from tighter coordination, stronger premium-event economics, and selective growth.</p>
+            
+            <div class="recommendations-grid">
+                <div class="recommendation-card">
+                    <div class="recommendation-number">01</div>
+                    <h3 style="margin-bottom: 1rem;">Integrate the Platform</h3>
+                    <p>Use UFC, WWE, IMG, On Location, and PBR as a coordinated monetization engine rather than a loose collection of assets. Focus on cross-selling sponsors across properties and streamlining operations.</p>
+                </div>
+                <div class="recommendation-card">
+                    <div class="recommendation-number">02</div>
+                    <h3 style="margin-bottom: 1rem;">Maximize Premium Event Economics</h3>
+                    <p>Lean harder into site fees, premium hospitality, sponsor activations, and marquee event pricing power. WrestleMania and UFC numbered events should drive higher per-fan economics.</p>
+                </div>
+                <div class="recommendation-card">
+                    <div class="recommendation-number">03</div>
+                    <h3 style="margin-bottom: 1rem;">Expand Selectively</h3>
+                    <p>Treat new ventures as controlled bets until the broader platform is fully integrated and consistently monetized. Avoid complexity for complexity's sake.</p>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 3rem; padding: 2rem; background: rgba(255, 255, 255, 0.1); border-radius: 15px;">
+                <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">TKO's next edge is coordination, not just expansion.</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final Take -->
+    <section class="final-take">
+        <h2 style="color: var(--primary-color); margin-bottom: 2rem;">Final Take</h2>
+        <div class="quote">Bigger is not the same as better.</div>
+        <p style="font-size: 1.2rem; max-width: 800px; margin: 0 auto; opacity: 0.9;">TKO has already built one of the most valuable portfolios in live sports and entertainment. The next step is to become better coordinated, better monetized, and harder to displace. The strongest path forward is disciplined integration: maximize the value of what the company already owns, protect the premium nature of its brands, and expand only where the payoff clearly outweighs the added complexity.</p>
+    </section>
+
+    <!-- Sources -->
+    <section class="sources-section">
+        <div class="section">
+            <h2 class="section-title">Selected Sources</h2>
+            <p style="text-align: center; margin-bottom: 3rem;">This analysis is grounded in company filings, investor materials, and group research compiled for BUS-479 Strategic Management.</p>
+            
+            <div class="sources-grid">
+                <div class="source-category">
+                    <h3>Primary Company Sources</h3>
+                    <ul class="source-list">
+                        <li>TKO Group Holdings, Inc. Form 10-K for fiscal year ended December 31, 2025</li>
+                        <li>TKO Reports Fourth Quarter and Full Year 2025 Results, released February 25, 2026</li>
+                        <li>Company disclosures on media rights, segment reporting, and capital returns</li>
+                    </ul>
+                </div>
+                <div class="source-category">
+                    <h3>Group Research Inputs</h3>
+                    <ul class="source-list">
+                        <li>External Analysis - TKO presentation and competitive assessment</li>
+                        <li>Financial analysis working document and strategic financial analysis</li>
+                        <li>Group competitor comparison and economic moat analysis</li>
+                        <li>Industry analysis using Porter's Five Forces framework</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 3rem; padding: 2rem; background: var(--gradient-bg); border-radius: 15px; color: var(--text-light);">
+                <p><strong>Course Context:</strong> Professor Boris Nikolaev • CSU • Group Members: Conner Waite, Liam Van Dyke, Sage Brewer</p>
+                <p style="margin-top: 1rem; font-size: 1.1rem;"><strong>Core Thesis:</strong> TKO's next stage of value creation depends less on adding more assets and more on integrating, monetizing, and protecting the premium brands it already controls.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scroll to top indicator -->
+    <div class="scroll-indicator" onclick="scrollToTop()">↑</div>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll to top function
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Add fade-in class to elements and observe them
+        document.querySelectorAll('.section, .revenue-stream, .metric-card, .evidence-card, .recommendation-card').forEach(el => {
+            el.classList.add('fade-in');
+            observer.observe(el);
+        });
+
+        // Navigation bar transparency on scroll
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('.nav-bar');
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(26, 26, 26, 0.98)';
+            } else {
+                nav.style.background = 'rgba(26, 26, 26, 0.95)';
+            }
+        });
+
+        // Interactive chart hover effects
+        document.querySelectorAll('.revenue-stream, .metric-card, .evidence-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-8px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Add some dynamic content updates
+        function updateMetrics() {
+            const currentYear = new Date().getFullYear();
+            const futureProjections = {
+                revenue: '$5.7B',
+                ebitda: '$2.3B',
+                events: '600+',
+                countries: '220+'
+            };
+            
+            // This could be expanded to show dynamic projections
+        }
+
+        // Initialize dynamic effects
+        updateMetrics();
+
+        // Add typing effect to hero title
+        function typeWriter(element, text, speed = 50) {
+            let i = 0;
+            element.innerHTML = '';
+            function type() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+            type();
+        }
+
+        // Enhanced interactivity for financial metrics
+        document.querySelectorAll('.metric-card').forEach((card, index) => {
+            card.addEventListener('click', function() {
+                const details = [
+                    'Revenue grew 22% in WWE segment, driven by new Netflix and ESPN deals',
+                    'EBITDA margin improved to 33.5%, up from 22% in 2024',
+                    'Strong cash generation supports $2B share buyback program',
+                    'Free cash flow supports quarterly dividend of $0.76 per share'
+                ];
+                
+                alert(details[index] || 'Strong financial performance across all metrics');
+            });
+        });
+
+        console.log('TKO Strategic Analysis Website loaded successfully');
+        console.log('Built for BUS-479 Strategic Management - Professor Boris Nikolaev');
+        console.log('Team: Conner Waite, Liam Van Dyke, Sage Brewer');
+    </script>
+</body>
+</html>
